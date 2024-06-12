@@ -13,8 +13,10 @@ import Add from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import logo from "../../logo.webp";
 import { formatCurrency } from "../../utils";
+import useCart, { REMOVE, SET_QUANTITY } from "./useCart";
 
-export default function CartItem({ item, dispatch }) {
+export default function CartItem({ item }) {
+  const { dispatch } = useCart();
   return (
     <Card sx={{ marginBottom: 2 }}>
       <Grid container spacing={3}>
@@ -35,7 +37,7 @@ export default function CartItem({ item, dispatch }) {
           <Button
             variant="plain"
             color="success"
-            onClick={() => dispatch({ type: "REMOVE", id: item.id })}
+            onClick={() => dispatch({ type: REMOVE, id: item.id })}
           >
             Remove
           </Button>
@@ -48,7 +50,7 @@ export default function CartItem({ item, dispatch }) {
               color="success"
               onClick={() =>
                 dispatch({
-                  type: "UPDATE_QUANTITY",
+                  type: SET_QUANTITY,
                   id: item.id,
                   quantity: --item.quantity,
                 })
@@ -64,7 +66,7 @@ export default function CartItem({ item, dispatch }) {
               color="success"
               onClick={() =>
                 dispatch({
-                  type: "UPDATE_QUANTITY",
+                  type: SET_QUANTITY,
                   id: item.id,
                   quantity: ++item.quantity,
                 })
