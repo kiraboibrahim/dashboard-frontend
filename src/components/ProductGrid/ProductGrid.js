@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "./Product";
-import { Box } from "@mui/joy";
+import { Box, Typography } from "@mui/joy";
 
 const products = [
   {
@@ -33,15 +33,17 @@ export default function ProductGrid() {
     <Product product={product} key={product.id} />
   ));
   return (
-    <Box
-      padding={2}
-      sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-        gap: 2,
-      }}
-    >
-      {productList}
-    </Box>
+    <>
+      <Typography level="h2">Products</Typography>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: 2,
+        }}
+      >
+        {productList}
+      </Box>
+    </>
   );
 }

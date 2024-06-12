@@ -1,18 +1,23 @@
-import { CssBaseline, CssVarsProvider } from "@mui/joy";
+import { CssBaseline, CssVarsProvider, Sheet } from "@mui/joy";
+
 import Cart from "../Cart/Cart";
 import ProductGrid from "../ProductGrid/ProductGrid";
-import OrderTracker from "../OrderTracker/OrderTracker";
 import { CartProvider } from "../Cart/useCart";
 import DriverTable from "../DriverTable/DriverTable";
+import Header from "../Header/Header";
+import Nav from "../Nav/Nav";
 
 function App() {
   return (
     <CssVarsProvider>
       <CssBaseline>
-        <DriverTable />
         <CartProvider>
-          <ProductGrid />
-          <Cart />
+          <Sheet sx={{ padding: 5 }}>
+            <Header />
+            <DriverTable />
+            <ProductGrid />
+            <Cart />
+          </Sheet>
         </CartProvider>
       </CssBaseline>
     </CssVarsProvider>

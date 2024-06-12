@@ -32,7 +32,7 @@ const drivers = [
 
 export default function DriverTable() {
   return (
-    <Box padding={2}>
+    <>
       <Box sx={{ marginBottom: 2 }} display="flex">
         <Typography level="h2" sx={{ marginRight: 10 }}>
           Drivers
@@ -76,6 +76,6 @@ export default function DriverTable() {
           })}
         </tbody>
       </Table>
-    </Box>
+    </>
   );
 }
